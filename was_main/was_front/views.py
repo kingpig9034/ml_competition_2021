@@ -15,7 +15,7 @@ def get_SKH_score_2021(submission_path):
     return score
 
 def get_SKT_score(submission_path):
-    answer_path = "mysuny2021/answer_skt.csv"
+    answer_path = "was_front/mysuni/answer_skt.csv"
     submission_path = submission_path
     with open(answer_path, 'r') as t1, open(submission_path, 'r') as t2:
         fileone = t1.decode('utf-8').readlines()
