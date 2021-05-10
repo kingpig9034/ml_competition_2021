@@ -10,8 +10,12 @@ import pandas as pd
 import os
 from sklearn.metrics import f1_score
 
+def get_SKH_score_2021(submission_path):
+    score = 0.0
+    return score
+
 def get_SKT_score(submission_path):
-    answer_path = "was_front/mysuni/answer_skt.csv"
+    answer_path = "mysuny2021/answer_skt.csv"
     submission_path = submission_path
     with open(answer_path, 'r') as t1, open(submission_path, 'r') as t2:
         fileone = t1.readlines()
@@ -30,6 +34,7 @@ def get_SKT_score(submission_path):
 
     t1.close()
     t2.close()
+    
     return score
 
 def get_SKC_score(submission_path):
@@ -80,7 +85,8 @@ class SKTUploadView(View):
             company = 'skt',
         )
         score.save()
-        calc_score = get_SKT_score(score.file.path)
+        #calc_score = get_SKT_score(score.file.path)
+        calc_score = get_SKT_score(score.file_path)
         score.score = calc_score
         score.save()
         data = {'is_valid': True, 'name': score.file.name, 'url': score.file.url, 'create_date':score.create_date, 'score': score.score}
