@@ -24,9 +24,11 @@ urlpatterns = [
 
     url(r'^skt_upload', views.SKTUploadView.as_view(), name="skt_upload"),
     url(r'^skc_upload', views.SKCUploadView.as_view(), name="skc_upload"),
+    url(r'^skh_upload', views.SKHUploadView.as_view(), name="skh_upload"),
 
     url(r'^skt_leaderboard', views.SKTLeaderBoard.as_view(), name="skt_leaderboard"),
     url(r'^skc_leaderboard', views.SKCLeaderBoard.as_view(), name="skc_leaderboard"),
+    url(r'^skh_leaderboard', views.SKHLeaderBoard.as_view(), name="skh_leaderboard"),
 
     url(r'^login', views.login, name="login"),
     url(r'^logout', views.logout, name="logout"),

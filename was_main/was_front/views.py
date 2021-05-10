@@ -15,9 +15,9 @@ def get_SKH_score_2021(submission_path):
     return score
 
 def get_SKT_score(submission_path):
-    answer_path = "was_front/mysuni/answer_skt.csv"
+    answer_path = "mysuny2021/answer_skt.csv"
     submission_path = submission_path
-    with open(answer_path, 'r') as t1, open(submission_path, 'r') as t2:
+    with open(answer_path, 'r', encoding='utf_8') as t1, open(submission_path, 'r', encoding='utf_8') as t2:
         fileone = t1.readlines()
         filetwo = t2.readlines()
 
@@ -53,6 +53,32 @@ def get_SKC_score(submission_path):
     print(score)
     return score
 
+def get_SKH_score(submission_path):
+    sample = pd.read_csv(submission_path,delimiter = ',')
+    answer = pd.read_csv('mysuny2021/answer_hynix.csv',delimiter = ',')
+    dt = pd.merge(answer[['Index', 'PF']], sample[['Index', 'PF']], how = 'left', on = ['Index'])
+    
+    include_dt = dt[(dt['PF_y'] == 1) | (dt['PF_y'] == 0)]
+    exclude_dt = dt[~dt.index.isin(include_dt.index)]
+    
+
+    s00 = dt[(dt['PF_x'] == 0) & (dt['PF_y'] == 0)]
+    s01 = dt[(dt['PF_x'] == 0) & (dt['PF_y'] == 1)]
+    s10 = dt[(dt['PF_x'] == 1) & (dt['PF_y'] == 0)]
+    s11 = dt[(dt['PF_x'] == 1) & (dt['PF_y'] == 1)]
+    san = dt[~((dt['PF_y'] == 1) | (dt['PF_y'] == 0))]
+    s1n = san[san['PF_x']== 1] 
+    s0n = san[san['PF_x']== 0]
+    
+    
+    acc = (len(s00) + len(s01)) / len(dt) * 100
+    acc1 = len(s11) / (len(s10) + len(s11) + len(s1n)) * 100
+    recall = len(s00) / (len(s00) + len(s10))  * 100
+    precision = len(s00) / (len(s00) + len(s01) + len(s0n)) * 100
+    
+    #print(acc, acc1, recall, precision)
+    
+    return acc, acc1, recall, precision
 
 # Create your views here.
 class MainView(View):
@@ -118,6 +144,32 @@ class SKCUploadView(View):
         
         return JsonResponse(data)
 
+class SKHUploadView(View):
+
+    def get(self, request , *args, **kwargs):
+        if not request.user.is_authenticated:
+            return render(request, 'login.html')
+        scores_list = Score.objects.filter(company='skc').filter(user_id=Profile.objects.get(user=request.user)).order_by('-create_date')
+        return render(self.request, 'skh_upload.html', {'scores': scores_list})
+
+    def post(self, request):
+        if not request.user.is_authenticated:
+            return render(request, 'auth/login.html')
+        print('upload data')
+        print(request.FILES)
+        score = Score(
+            user_id = Profile.objects.get(user = request.user),
+            file = request.FILES['file'],
+            company = 'skh',
+        )
+        score.save()
+        acc, acc1, recall, precision = get_SKH_score(score.file.path)
+        score.score = precision
+        score.save()
+        data = {'is_valid': True, 'name': score.file.name, 'url': score.file.url, 'create_date':score.create_date, 'score': score.score}
+        
+        return JsonResponse(data)
+
 class SKTLeaderBoard(View):
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -133,6 +185,16 @@ class SKCLeaderBoard(View):
         skc_global_score_list = Score.objects.filter(company = 'skc').order_by('-score')[0:20]
         skc_local_score_list = Score.objects.filter(company = 'skc').filter(user_id = Profile.objects.get(user=request.user)).order_by('-score')[0:20]
         return render(self.request, 'skc_leaderboard.html', {'global_score_list':skc_global_score_list, 'local_score_list':skc_local_score_list})
+
+
+class SKHLeaderBoard(View):
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return render(request, 'login.html')
+        skc_global_score_list = Score.objects.filter(company = 'skh').order_by('-score')[0:20]
+        skc_local_score_list = Score.objects.filter(company = 'skh').filter(user_id = Profile.objects.get(user=request.user)).order_by('-score')[0:20]
+        return render(self.request, 'skh_leaderboard.html', {'global_score_list':skc_global_score_list, 'local_score_list':skc_local_score_list})
+
 
 from django.contrib.auth.models import User
 from django.contrib import auth
