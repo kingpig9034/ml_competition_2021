@@ -85,8 +85,7 @@ class SKTUploadView(View):
             company = 'skt',
         )
         score.save()
-        #calc_score = get_SKT_score(score.file.path)
-        calc_score = get_SKT_score(score.file_path)
+        calc_score = get_SKT_score(score.file.path)
         score.score = calc_score
         score.save()
         data = {'is_valid': True, 'name': score.file.name, 'url': score.file.url, 'create_date':score.create_date, 'score': score.score}
