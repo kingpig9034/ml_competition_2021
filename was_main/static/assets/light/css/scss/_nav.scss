@@ -1,0 +1,45 @@
+//
+// Override tabs
+//
+// nav-tabs
+.nav-tabs {
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    color: $nav-tabs-link-active-color;
+  }
+}
+
+// nav-lines
+.nav-lines {
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+  .nav-item {
+    margin-bottom: -$nav-tabs-border-width;
+  }
+
+  .nav-link {
+    color: $nav-tabs-lines-color;
+
+    &.active {
+      color: $nav-tabs-lines-active-color;
+      border-bottom: 2px solid $nav-tabs-lines-border-color;
+    }
+    &.disabled {
+      color: $nav-link-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}
+
+// nav-outline
+.nav-outlines {
+  .nav-link {
+    &.active {
+      color: $nav-tabs-lines-active-color;
+      box-shadow: 0 0 0 2px $nav-tabs-lines-border-color inset;
+      border-radius: $nav-tabs-outlines-border-radius;
+    }
+  }
+}

@@ -1,0 +1,178 @@
+//
+// Override btn
+//
+// btn
+.btn {
+  &.disabled,
+  &:disabled {
+    opacity: 1;
+  }
+}
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant(
+      $value,
+      $value,
+      $hover-background:  lighten($value, 10%),
+      $hover-border:      lighten($value, 10%),
+      $active-background: lighten($value, 20%),
+      $active-border:     lighten($value, 20%)
+    );
+
+    &:focus,
+    &.focus {
+      text-decoration: none;
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $btn-text-disabled;
+      background-color: $btn-disabled;
+      border-color: $btn-disabled;
+    }
+
+    @if $color == warning or $color == light {
+      color: $btn-text-dark;
+
+      @include hover {
+        color: $btn-text-dark;
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $btn-text-dark;
+      }
+
+      @if $color == light {
+        @include hover {
+          border-color: darken($value, 5%);
+          background-color: darken($value, 5%);
+        }
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active,
+        .show > &.dropdown-toggle {
+          border-color: darken($value, 10%);
+          background-color: darken($value, 10%);
+        }
+      }
+    } @else if $color == link {
+      color: $value;
+      background-color: transparent;
+      border-color: transparent;
+
+      @include hover {
+        color: $value;
+        background-color: transparent;
+        border-color: transparent;
+        text-decoration: none;
+
+        &::after {
+          background-color: $value;
+        }
+      }
+      &::after {
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin-top: -0.1875rem;
+        content: "";
+      }
+      &.focus,
+      &:focus {
+        box-shadow: none;
+      }
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $link-active;
+        background-color: transparent;
+        border-color: transparent;
+        text-decoration: none;
+
+        &::after {
+          background-color: $link-active;
+        }
+
+        &.focus,
+        &:focus {
+          color: $link-focus;
+          box-shadow: none;
+
+          &::after {
+            height: 2px;
+            background-color: $link-focus;
+          }
+        }
+      }
+    } @else {
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $white;
+      }
+    }
+  }
+}
+
+// btn-outline
+@each $color, $value in $theme-outline-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+
+    @include hover {
+      color: $value;
+      background-color: darken($white, 5%);
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $btn-text-disabled;
+      background-color: $white;
+      border-color: $btn-outline-disabled;
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      color: $value;
+      background-color: darken($white, 10%);
+
+      &:focus {
+        color: $value;
+      }
+    }
+    @if $color == light {
+      color: $btn-text-dark;
+
+      @include hover {
+        color: $btn-text-dark;
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $btn-text-dark;
+
+        &:focus {
+          color: $btn-text-dark;
+        }
+      }
+    }
+  }
+}
+
+// btn-ghost
+@each $color, $value in $theme-ghost-colors {
+  .btn-ghost-#{$color} {
+    @include button-ghost-variant($value);
+
+    @include hover {
+      color: $value;
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $btn-text-disabled;
+    }
+  }
+}

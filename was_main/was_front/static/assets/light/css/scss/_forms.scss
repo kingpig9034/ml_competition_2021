@@ -1,0 +1,118 @@
+//
+// Override form-controls
+//
+.form-control {
+	&[type="search"]::-ms-clear {
+		width: $custom-search-clear-width;
+    height: $custom-search-clear-height;
+    padding-left: 1px;
+    color: $custom-search-clear-ms-color;
+    border-radius: $custom-search-clear-radius;
+	  background-color: $custom-search-clear-bg-color;
+	}
+	&[type="search"]::-webkit-search-cancel-button {
+		width: $custom-search-clear-width;
+    height: $custom-search-clear-height;
+    border-radius: $custom-search-clear-radius;
+	  background-color: $custom-search-clear-bg-color;
+	  background-image: $svg-filled-action-cancel;
+	  background-repeat: no-repeat;
+	  background-position: $custom-search-clear-bg-position;
+	  background-size: $custom-search-clear-bg-size;
+	  -webkit-appearance: none;
+		appearance: none;
+	}
+	.theme-header & {
+		&.bg-dark {
+			&[type="search"]::-webkit-search-cancel-button {
+				background-color: $custom-search-clear-bg-dark-color;
+			}
+		}
+	}
+}
+.form-control,
+.custom-select {
+	&:focus {
+		box-shadow: none;
+	}
+	&:disabled,
+  &[readonly] {
+  	color: $input-disable-color;
+    border-color: $input-disable-border-color;
+    box-shadow: none;
+  }
+}
+.custom-select {
+	&:hover {
+		background-color: $custom-select-hover-color;
+	}
+}
+.custom-file-input {
+	&:focus {
+		& ~ .custom-file-label {
+			box-shadow: none;
+		}
+	}
+}
+.custom-search {
+	overflow: hidden;
+	position: relative;
+
+	&:before {
+		@extend .icomoon;
+		position: absolute;
+		left: 0.75rem;
+		top: 50%;
+		font-size: 1rem;
+		color: $custom-search-icon-color;
+		content: "\e9fd";
+		z-index: 2;
+		transform: translateY(-50%);
+	}
+	[type="search"] {
+		padding-left: $custom-search-padding-x;
+	}
+}
+.dataTables_wrapper {
+	.custom-search-wrapper {
+		text-align: right;
+
+		.custom-search {
+			display: inline-block;
+
+			[type="search"] {
+				padding-left: 2.25rem;
+				margin: 0 !important;
+			}
+		}
+		label {
+			margin: 0;
+		}
+	}
+	.dataTables_info {
+		margin-left: 15px;
+		padding: 0 !important;
+	}
+}
+
+@each $state in valid, invalid {
+	.form-control,
+	.custom-select {
+		.was-validated &:#{$state},
+    &.is-#{$state} {
+    	&:focus {
+				box-shadow: none;
+			}
+    }
+	}
+	.custom-file-input {
+		.was-validated &:#{$state},
+    &.is-#{$state} {
+			&:focus {
+				& ~ .custom-file-label {
+					box-shadow: none;
+				}
+			}
+    }
+	}
+}

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <title>List datatable | Pages</title>
+    <!--
+    <link rel="shortcut icon" href="{% static 'assets/common/img/favicon/ux.ico' %}">
+    -->
+    <link rel="apple-touch-icon" href="{% static 'assets/common/img/favicon/ux.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/light/css/uxs.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/light/css/demo.css' %}">
+
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+
+    <!-- wrapper -->
+    <div class="wrapper wrapper-fixed" id="go-to-top">
+
+      <!-- theme-header -->
+      <header class="theme-header bg-dark">
+        <!-- header-item -->
+        <div class="header-item">
+          <!-- lnb-toggler -->
+          <button class="navbar-toggler lnb-toggler d-lg-none" type="button" aria-controls="theme-lnb" aria-expanded="false" aria-label="Toggle LNB">
+            <span class="navbar-toggler-icon"></span>
+            <span class="sr-only">주 메뉴 바로가기</span>
+          </button>
+          <!-- /lnb-toggler -->
+
+          <!-- navbar-brand -->
+          <a class="navbar-brand" href="#">Deep Learning Competition</a>
+          <!-- /navbar-brand -->
+
+          <!-- nav -->
+          <!-- /nav -->
+        </div>
+        <!-- /header-item -->
+
+        <!-- header-item -->
+        <div class="header-item search-item">
+          <!-- search -->
+          <div >
+            <strong style="color:white;">{{user}} 님 환영합니다</strong> 
+          </div>
+          <!-- /search -->
+
+          <!-- navbar-nav -->
+
+          <!-- /navbar-nav -->
+        </div>
+        <!-- /header-item -->
+      </header>
+      <!-- /theme-header -->
+
+      <!-- theme-body -->
+      <div class="theme-body bg-white">
+        <!-- sidebar -->
+        <div class="theme-sidebar">
+          <div class="sidebar-area">
+            <nav class="theme-sidebar-nav">
+              <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="{% url 'frontend:main' %}" class="nav-link nav-first-link ">
+                      <span class="glyphicons-text" aria-hidden="true"></span>
+                      Main
+                    </a>
+               
+                  </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link nav-first-link nav-dropdown-toggler dropdown">
+                    <span class="glyphicons-text" aria-hidden="true"></span>
+                    SKT
+                  </a>
+                
+                  <ul class="nav-dropdown-items nav-dropdown">
+
+                    <li>
+                      <a href="{% url 'frontend:skt_upload' %}" class="nav-link">Answer Upload</a>
+                      <a href="{% url 'frontend:skt_leaderboard' %}" class="nav-link">Leader Board</a>
+
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link nav-first-link nav-dropdown-toggler dropdown">
+                    <span class="glyphicons-text" aria-hidden="true"></span>
+                    SKC
+
+                  </a>
+                  <ul class="nav-dropdown-items nav-dropdown">
+                    <li>
+                        <a href="{% url 'frontend:skc_upload' %}" class="nav-link">Answer Upload</a>
+                        <a href="{% url 'frontend:skc_leaderboard' %}" class="nav-link">Leader Board</a>
+  
+                      </li>
+
+                  </ul>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <a href="{% url 'frontend:logout' %}" class="nav-link nav-first-link ">
+                      <span class="glyphicons-logout" aria-hidden="true"></span>
+                      로그아웃<small><i>({{ user.get_username }})</i></small>
+                    </a>
+                    
+                </li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /sidebar -->
+        {% block content %}
+        {% endblock %}
+
+      </div>
+      <!-- /theme-body -->
+
+      <!-- theme-go-to-top -->
+      <div class="theme-go-to-top">
+        <a class="ux-top-link" href="#go-to-top">
+          <span class="glyphicons-top" aria-hidden="true"></span>
+          <span class="sr-only">Go to Top</span>
+        </a>
+      </div>
+      <!-- /theme-go-to-top -->
+
+    </div>
+    <!-- /wrapper -->
+
+    {% block modal %}
+    {% endblock %}
+
+    
+    {% block javascript %}
+    {% endblock %}
+
+   
+   
+
+  </body>
+</html>

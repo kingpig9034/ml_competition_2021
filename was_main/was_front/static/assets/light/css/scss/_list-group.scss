@@ -1,0 +1,58 @@
+//
+// Override list group(items)
+//
+// list-group-flush
+.list-group-flush {
+  .list-group-item:first-child {
+   	border-top: 0;
+  }
+}
+
+// list-group-item-action
+.list-group-item-action {
+	&:focus {
+		outline: none;
+		box-shadow: $list-group-action-focus-shadow;
+	}
+}
+
+// list-group-item
+.list-group-item {
+	padding: $list-group-item-padding-y $list-group-item-padding-x;
+  &.active {
+  	color: $list-group-typography-color;
+		small {
+			color: $list-group-samll-active-color;
+		}
+	}
+}
+@each $color, $value in $theme-colors {
+	.list-group-item-#{$color} {
+		@if $color == primary {
+			color: $contextual-primary-color;
+	  	background-color: $contextual-primary-bg-color;
+	  } @else if $color == secondary {
+	  	color: $contextual-secondary-color;
+			background-color: $contextual-secondary-bg-color;
+	  } @else if $color == success {
+	  	color: $contextual-success-color;
+	  	background-color: $contextual-success-bg-color;
+	  } @else if $color == danger {
+	  	color: $contextual-danger-color;
+	  	background-color: $contextual-danger-bg-color;
+	  } @else if $color == info {
+	  	color: $contextual-info-color;
+	  	background-color: $contextual-info-bg-color;
+	  } @else if $color == warning {
+	  	color: $contextual-warning-color;
+	  	background-color: $contextual-warning-bg-color;
+	  } @else if $color == light {
+	  	color: $contextual-light-color;
+	  	background-color: $contextual-light-bg-color;
+	  } @else if $color == dark {
+	  	color: $contextual-dark-color;
+	  	background-color: $contextual-dark-bg-color;
+	  }
+	}
+}
+

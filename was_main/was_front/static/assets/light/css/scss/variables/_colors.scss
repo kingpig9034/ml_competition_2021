@@ -1,0 +1,446 @@
+//
+// Color system
+//
+
+// Grays
+$white:     #fff !default;
+$gray-100:  #f7f7f9 !default;
+$gray-200:  #efeff4 !default;
+$gray-300:  #e5e5ea !default;
+$gray-400:  #d1d1d6 !default;
+$gray-500:  #c7c7cc !default;
+$gray-600:  #aaaaaf !default;
+$gray-700:  #8e8e93 !default;
+$gray-800:  #5b5c60 !default;
+$gray-900:  #2a2c2e !default;
+$black:     #000 !default;
+
+$grays: () !default;
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+// Key colors
+$blue:              #386f91 !default;
+$indigo:            #6610f2 !default;
+$purple:            #6f42c1 !default;
+$pink:              #e83e8c !default;
+$red:               #dc2127 !default;
+$orange:            #fd7e14 !default;
+$yellow:            #fed21f !default;
+$green:             #18a344 !default;
+$teal:              #20c997 !default;
+$cyan:              #176a8f !default;
+
+// Custom key colors
+$sanjuan:           #29526b !default; // $primary-1
+$foam:              #daf4fc !default; // $primary-2
+$shark:             #1a1b1c !default; // $secondary-1
+$sanfelix:          #076527 !default; // $success-1
+$swansdown:         #d3eddc !default; // $success-2
+$tamarillo:         #a7171a !default; // $danger-1
+$csmos:             #ffdce0 !default; // $danger-2
+$easternblue:       #2499a8 !default; // $info
+$elm:               #196b75 !default; // $info-1
+$blacksqueeze:      #def0f3 !default; // $info-2
+$brown:             #855603 !default; // $warning-1
+$champagne:         #faedd3 !default; // $warning-2
+$concrete:          #f2f2f2 !default;
+$athesngray:        #efeff4 !default;
+$mineshaft:         #272727 !default;
+$outrageousorange:  #ff6341 !default;
+$black:             #000 !default;
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "blue":             $blue,
+    "indigo":           $indigo,
+    "purple":           $purple,
+    "pink":             $pink,
+    "red":              $red,
+    "orange":           $orange,
+    "yellow":           $yellow,
+    "green":            $green,
+    "teal":             $teal,
+    "cyan":             $cyan,
+
+    "sanjuan":          $sanjuan,            // $primary-1
+    "foam":             $foam,               // $primary-2
+    "shark":            $shark,              // $secondary-1
+    "sanfelix":         $sanfelix,           // $success-1
+    "swansdown":        $swansdown,          // $success-2
+    "tamarillo":        $tamarillo,          // $danger-1
+    "csmos":            $csmos,              // $danger-2
+    "easternblue":      $easternblue,        // $info
+    "elm":              $elm,                // $info-1
+    "blacksqueeze":     $blacksqueeze,       // $info-2
+    "brown":            $brown,              // $warning-1
+    "champagne":        $champagne,          // $warning-2
+    "concrete":         $concrete,
+    "light-2":          $athesngray,
+
+    "white":            $white,
+    "gray":             $gray-600,
+    "gray-dark":        $gray-800,
+    "black":            $black,
+    "mineshaft":        $mineshaft
+  ),
+  $colors
+);
+
+$primary:      $blue !default;
+$primary-1:    $sanjuan !default;
+$primary-2:    $foam !default;
+$secondary:    $gray-900 !default;
+$secondary-1:  $shark !default;
+$secondary-2:  $gray-200 !default;
+$success:      $green !default;
+$success-1:    $sanfelix !default;
+$success-2:    $swansdown !default;
+$danger:       $red !default;
+$danger-1:     $tamarillo !default;
+$danger-2:     $csmos !default;
+$info:         $easternblue !default;
+$info-1:       $elm !default;
+$info-2:       $blacksqueeze !default;
+$warning:      $yellow !default;
+$warning-1:    $brown !default;
+$warning-2:    $champagne !default;
+$light:        $gray-200 !default;
+$dark:         #383838 !default;
+$link:         $blue !default;
+$link-active:  #6aa2c5 !default;
+$link-focus:   $blue !default;
+$light-2:      $athesngray !default;
+$black:        $black !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":     $primary,
+    "secondary":   $secondary,
+    "success":     $success,
+    "info":        $info,
+    "warning":     $warning,
+    "danger":      $danger,
+
+    "primary-1":    $primary-1,
+    "primary-2":    $primary-2,
+    "secondary-1":  $secondary-1,
+    "secondary-2":  $secondary-2,
+    "success-1":    $success-1,
+    "success-2":    $success-2,
+    "danger-1":     $danger-1,
+    "danger-2":     $danger-2,
+    "info-1":       $info-1,
+    "info-2":       $info-2,
+    "warning-1":    $warning-1,
+    "warning-2":    $warning-2,
+
+    "light":      $light,
+    "dark":       $dark,
+    "black":      $black,
+    "link":       $link,
+
+    "light-2": $light-2,
+
+    "mineshaft": $mineshaft
+  ),
+  $theme-colors
+);
+
+// btn Colors
+$btn-disabled:           $gray-200 !default;
+
+$btn-text-dark:          rgba(0, 0, 0, 0.87) !default;
+$btn-text-disabled:      rgba(0, 0, 0, 0.38) !default;
+
+$btn-outline-primary:    $primary !default;
+$btn-outline-secondary:  $gray-900 !default;
+$btn-outline-success:    $success-1 !default;
+$btn-outline-danger:     $danger-1 !default;
+$btn-outline-info:       $info-1 !default;
+$btn-outline-warning:    $warning-1 !default;
+$btn-outline-light:      $gray-300 !default;
+$btn-outline-dark:       #1c1c1c !default;
+$btn-outline-disabled:   $gray-300 !default;
+
+$theme-outline-colors: () !default;
+$theme-outline-colors: map-merge(
+  (
+    "primary":    $btn-outline-primary,
+    "secondary":  $btn-outline-secondary,
+    "success":    $btn-outline-success,
+    "info":       $btn-outline-info,
+    "warning":    $btn-outline-warning,
+    "danger":     $btn-outline-danger,
+    "light":      $btn-outline-light,
+    "dark":       $btn-outline-dark
+  ),
+  $theme-outline-colors
+);
+
+$btn-ghost-primary:    $primary !default;
+$btn-ghost-secondary:  $gray-900 !default;
+$btn-ghost-success:    $success-1 !default;
+$btn-ghost-danger:     $danger-1 !default;
+$btn-ghost-info:       $info-1 !default;
+$btn-ghost-warning:    $warning-1 !default;
+$btn-ghost-link:       $primary !default;
+$btn-ghost-light:      $gray-800 !default;
+$btn-ghost-dark:       #2b2b2b !default;
+$btn-ghost-disabled:   $btn-text-disabled !default;
+
+$theme-ghost-colors: () !default;
+$theme-ghost-colors: map-merge(
+  (
+    "primary":    $btn-ghost-primary,
+    "secondary":  $btn-ghost-secondary,
+    "success":    $btn-ghost-success,
+    "info":       $btn-ghost-info,
+    "warning":    $btn-ghost-warning,
+    "danger":     $btn-ghost-danger,
+    "light":      $btn-ghost-light,
+    "dark":       $btn-ghost-dark
+  ),
+  $theme-ghost-colors
+);
+
+// Reserved word
+$whiter87:                                rgba(255, 255, 255, .87) !default;
+$whiter6:                                 rgba(255, 255, 255, .6) !default;
+$whiter38:                                rgba(255, 255, 255, .38) !default;
+$blackr87:                                rgba(0, 0, 0, .87) !default;
+$blackr6:                                 rgba(0, 0, 0, .6) !default;
+$blackr38:                                rgba(0, 0, 0, .38) !default;
+$bd-grays-9:                              $gray-900 !default;
+$bd-grays-8:                              $gray-800 !default;
+$bd-grays-7:                              $gray-700 !default;
+$bd-grays-6:                              $gray-600 !default;
+$bd-grays-5:                              $gray-500 !default;
+$bd-grays-4:                              $gray-400 !default;
+$bd-grays-3:                              $gray-300 !default;
+$bd-grays-2:                              $gray-200 !default;
+$bd-grays-1:                              $gray-100 !default;
+$bg-grays-9:                              $gray-900 !default;
+$bg-grays-8:                              $gray-800 !default;
+$bg-grays-7:                              $gray-700 !default;
+$bg-grays-6:                              $gray-600 !default;
+$bg-grays-5:                              $gray-500 !default;
+$bg-grays-4:                              $gray-400 !default;
+$bg-grays-3:                              $gray-300 !default;
+$bg-grays-2:                              $gray-200 !default;
+$bg-grays-1:                              $gray-100 !default;
+
+// Components
+// Caret
+$caret-icon-color:                        $white !default;
+
+// Card
+$card-body-color:                         $gray-800 !default;
+$card-white-color:                        rgba(255, 255, 255, 0.87) !default;
+$card-small-color:                        rgba(255, 255, 255, 0.6) !default;
+$card-muted-color:                        $gray-600 !default;
+$card-border-color:                       $gray-300 !default;
+$card-header-primary-bg:                  $primary-1 !default;
+$card-header-secondary-bg:                $secondary-1 !default;
+$card-header-success-bg:                  $success-1 !default;
+$card-header-danger-bg:                   $danger-1 !default;
+$card-header-info-bg:                     $info-1 !default;
+$card-header-warning-bg:                  $warning-1 !default;
+$card-header-light-bg:                    $gray-800 !default;
+$card-header-dark-bg:                     #2b2b2b !default;
+$card-warning-title-color:                $gray-900 !default;
+$card-warning-body-color:                 rgba($gray-800, 0.87) !default;
+$card-header-warning-text-color:          $warning-2 !default;
+
+$accordion-card-header-color:             $gray-900 !default;
+$accordion-card-header-bg:                $white !default;
+
+// Close
+$close-bg-color:                          $gray-600 !default;
+$close-focus-ring-color:                  $gray-800 !default;
+
+// Carousel
+$carousel-control-color:                  $white !default;
+
+// Contextual
+$contextual-border-color:                 $gray-300 !default;
+$contextual-primary-color:                $primary !default;
+$contextual-primary-bg-color:             $primary-2 !default;
+$contextual-secondary-color:              $secondary !default;
+$contextual-secondary-bg-color:           $secondary-2 !default;
+$contextual-success-color:                $success-1 !default;
+$contextual-success-bg-color:             $success-2 !default;
+$contextual-danger-color:                 $danger-1 !default;
+$contextual-danger-bg-color:              $danger-2 !default;
+$contextual-info-color:                   $info-1 !default;
+$contextual-info-bg-color:                $info-2 !default;
+$contextual-warning-color:                $warning-1 !default;
+$contextual-warning-bg-color:             $warning-2 !default;
+$contextual-light-color:                  $gray-900 !default;
+$contextual-light-bg-color:               $gray-100 !default;
+$contextual-dark-color:                   $white !default;
+$contextual-dark-bg-color:                $gray-900 !default;
+
+// Dropdowns
+$dropdown-divider-bg:                     $gray-300 !default;
+$dropdown-link-hover-bg:                  $gray-100 !default;
+$dropdown-link-active-color:              darken($gray-900, 5%) !default;
+$dropdown-link-active-bg:                 $gray-300 !default;
+$dropdown-link-disabled-color:            rgba(0, 0, 0, 0.38) !default;
+
+// Form
+$component-active-color:                  $white !default;
+$custom-control-indicator-checked-color:  $component-active-color !default;
+$input-color:                             $gray-900 !default;
+$input-placeholder-color:                 $gray-600 !default;
+$input-border-color:                      $gray-300 !default;
+$input-disable-color:                     $gray-600 !default;
+$input-disabled-bg:                       $gray-100 !default;
+$input-disable-border-color:              $gray-200 !default;
+
+$custom-file-color:                       $gray-800 !default;
+
+$custom-select-hover-color:               $concrete !default;
+$custom-select-indicator-color:           $gray-800 !default;
+
+$custom-range-thumb-bg:                   $gray-900 !default;
+$custom-range-thumb-active-bg:            $primary !default;
+
+$custom-switch-indicator-color:           $white !default;
+$custom-switch-indicator-bg:              $gray-700 !default;
+$custom-switch-disabled-indicator-color:  $gray-400 !default;
+$custom-switch-focus-shadow:              $gray-700 !default;
+$custom-switch-checked-focus-shadow:      $primary !default;
+
+$custom-radio-checked-border-color:       $primary !default;
+$custom-radio-disabled-border-color:      $gray-500 !default;
+$custom-radio-checked-bg-color:           $white !default;
+$custom-control-indicator-checked-disabled-bg: $gray-500 !default;
+$custom-control-radio-checked-disabled-bg: $white !default;
+
+$custom-search-clear-ms-color:            $mineshaft !default;
+$custom-search-clear-bg-color:            $gray-200 !default;
+$custom-search-clear-bg-dark-color:       $whiter6 !default;
+$custom-search-icon-color:                $gray-600 !default;
+
+// Form validation
+$form-feedback-valid-color:               $success !default;
+$form-feedback-invalid-color:             $danger !default;
+$form-feedback-icon-valid-color:          $form-feedback-valid-color !default;
+$form-feedback-icon-invalid-color:        $form-feedback-invalid-color !default;
+
+// List group
+$list-group-hover-bg:                     $concrete !default;
+$list-group-border-color:                 $gray-300 !default;
+$list-group-action-color:                 $gray-900 !default;
+$list-group-action-text-color:            $list-group-action-color !default;
+$list-group-action-hover-color:           $gray-900 !default;
+$list-group-typography-color:             $white !default;
+$list-group-active-color:                 rgba($white, 0.87) !default;
+$list-group-samll-active-color:           rgba($white, 0.6) !default;
+$list-group-action-focus-shadow-color:    $gray-300 !default;
+
+$modal-body-color:                        $gray-800 !default;
+$modal-border-color:                      $gray-200 !default;
+
+// Nav
+$nav-tabs-lines-color:                    $gray-800 !default;
+$nav-tabs-lines-active-color:             $primary  !default;
+$nav-tabs-link-active-color:              $gray-900 !default;
+$nav-tabs-lines-border-color:             $nav-tabs-lines-active-color !default;
+$nav-utility-border-color:                #4d4d4d !default;
+
+// Navbar
+$navbar-padding-y:                        .4375rem !default;
+$navbar-dark-color:                       rgba($white, .5) !default;
+$navbar-bg-light:                         $gray-100 !default;
+
+$navbar-light-color:                      $gray-700 !default;
+$navbar-light-hover-color:                $gray-900 !default;
+$navbar-light-active-color:               $gray-900 !default;
+
+// Popover
+$popover-body-color:                      $gray-800 !default;
+
+// Typography
+$text-muted:                              $gray-700 !default;
+$text-white-87:                           $whiter87 !default;
+$text-white-6:                            $whiter6 !default;
+$text-white-38:                           $whiter38 !default;
+$text-black-87:                           $blackr87 !default;
+$text-black-6:                            $blackr6 !default;
+$text-black-38:                           $blackr38 !default;
+$text-grays-9:                            $gray-900 !default;
+$text-grays-8:                            $gray-800 !default;
+$text-grays-7:                            $gray-700 !default;
+$text-grays-6:                            $gray-600 !default;
+$text-grays-5:                            $gray-500 !default;
+$text-grays-4:                            $gray-400 !default;
+$text-grays-3:                            $gray-300 !default;
+$text-grays-2:                            $gray-200 !default;
+$text-grays-1:                            $gray-100 !default;
+
+// Table
+$table-accent-bg:                         $gray-100 !default;
+$table-hover-bg:                          rgba($black, .05) !default;
+$table-head-bg:                           $gray-300 !default;
+$table-head-color:                        $gray-900 !default;
+$table-dark-bg:                           $gray-900 !default;
+
+//Toasts
+$toast-header-color:                      $gray-900 !default;
+$toast-body-color:                        $gray-800 !default;
+$toast-border-color:                      rgba(0, 0, 0, .05) !default;
+$toast-close-color:                       $gray-600 !default;
+
+// Tooltips
+$tooltip-bg:                              $gray-900 !default;
+
+// Wizard
+$wizard-items-color:                      $gray-600 !default;
+$wizard-items-current-color:              $gray-900 !default;
+$wizard-items-bg-color:                   $white !default;
+$wizard-line-bg-color:                    $gray-300 !default;
+$wizard-stage-color:                      $gray-500 !default;
+$wizard-stage-bg-color:                   $white !default;
+$wizard-stage-border-color:               $gray-300 !default;
+$wizard-stage-current-color:              $white !default;
+$wizard-stage-bg-current-color:           $gray-900 !default;
+$wizard-stage-border-current-color:       $wizard-stage-bg-current-color !default;
+$wizard-stage-disabled-color:             transparent !default;
+$wizard-stage-bg-disabled-color:          $gray-500 !default;
+$wizard-stage-border-disabled-color:      $wizard-stage-bg-disabled-color !default;
+$wizard-stage-disabled-icon-color:        $white !default;
+
+// Date Picker
+$date-picker-border-color:                $gray-300 !default;
+$date-picker-hyphen-color:                $gray-500 !default;
+$date-picker-form-color:                  $gray-900 !default;
+$date-picker-glyphicons-color:            $gray-600  !default;
+
+// Brand Colors
+$navbar-brand-bootstrap:                  #b18bf5 !default;
+$navbar-brand-react:                      #4fa8f7  !default;
+$navbar-brand-vue:                        #51b85f !default;
+
+// ux-go-to-top
+$uxs-top-link-light-color:                #0c0c0c !default;
+$uxs-top-link-light-bg-color:             #ffffff !default;
+$uxs-top-link-light-border-color:         #e1e1e1 !default;
+$uxs-top-link-dark-color:                 #bbbbbb !default;
+$uxs-top-link-dark-bg-color:              #333333 !default;
+$uxs-top-link-dark-border-color:          #464646 !default;

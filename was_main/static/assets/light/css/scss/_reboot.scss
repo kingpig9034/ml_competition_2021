@@ -1,0 +1,63 @@
+//
+// Base styles
+//
+// Forms
+label {
+  color: $gray-800;
+  margin-bottom: 0.25rem;
+}
+
+// table
+caption {
+  margin: $table-caption-margin;
+  padding: 0;
+  color: $table-caption-color;
+}
+
+// tooltip
+.tooltip {
+  top: -100%;
+}
+
+//
+// reserved word
+//
+//content-centered
+.content-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  &:after{
+    content: "";
+    min-height: inherit;
+  }
+}
+
+// divider
+%divider {
+  display: inline-block;
+  width: 1px;
+  height: 0.75rem;
+  margin: 0 0.5rem 0 0.4375rem;
+  line-height: 1.4;
+  background-color: $gray-300;
+  vertical-align: middle;
+  content: "";
+  transform: translateY(-1px);
+}
+.before- {
+  &divider {
+    &:before {
+      @extend %divider;
+    }
+  }
+}
+.after- {
+  &divider {
+    &:after {
+      @extend %divider;
+    }
+  }
+}

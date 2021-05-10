@@ -1,0 +1,90 @@
+//
+// Override tables
+//
+.table {
+  thead th,
+  tbody th,
+  tbody td {
+    padding: $table-cell-padding;
+    height: 3.188rem;
+    vertical-align: middle;
+  }
+
+  .btn,
+  .badge {
+  	position: relative;
+  	vertical-align: baseline;
+  }
+  .badge {
+		top: -1px;
+  }
+  .d-flex {
+		top: 0;
+
+		.badge {
+			top: 0;
+	  }
+	}
+}
+.table-sm {
+  thead th,
+  tbody th,
+  tbody td {
+    padding: $table-cell-padding-sm;
+    height: 2.125rem;
+
+		.btn,
+    .custom-select {
+	  	vertical-align: top;
+	  }
+  }
+}
+.table-xsm {
+  thead th,
+  tbody th,
+  tbody td {
+		padding: $table-cell-padding-xsm;
+		height: auto;
+  }
+}
+
+// Table backgrounds
+@each $color, $value in $theme-colors {
+	.table-#{$color} {
+		> th, > td {
+			border-color: $contextual-border-color;
+
+			@if $color == primary {
+				color: $contextual-primary-color;
+		  	background-color: $contextual-primary-bg-color;
+		  } @else if $color == secondary {
+		  	color: $contextual-secondary-color;
+				background-color: $contextual-secondary-bg-color;
+		  } @else if $color == success {
+		  	color: $contextual-success-color;
+		  	background-color: $contextual-success-bg-color;
+		  } @else if $color == danger {
+		  	color: $contextual-danger-color;
+		  	background-color: $contextual-danger-bg-color;
+		  } @else if $color == info {
+		  	color: $contextual-info-color;
+		  	background-color: $contextual-info-bg-color;
+		  } @else if $color == warning {
+		  	color: $contextual-warning-color;
+		  	background-color: $contextual-warning-bg-color;
+		  } @else if $color == light {
+		  	color: $contextual-light-color;
+		  	background-color: $contextual-light-bg-color;
+		  } @else if $color == dark {
+		  	color: $contextual-dark-color;
+		  	background-color: $contextual-dark-bg-color;
+		  }
+		}
+	}
+}
+
+// .table-responsive {
+// 	.custom-search-wrapper {
+// 		text-align: left;
+// 	}
+// }

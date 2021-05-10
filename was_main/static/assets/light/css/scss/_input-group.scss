@@ -1,0 +1,11 @@
+//
+// Override input group
+//
+// input-group-text
+.input-group-text {
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}

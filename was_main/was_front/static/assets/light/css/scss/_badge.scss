@@ -1,0 +1,20 @@
+//
+// Override badge
+//
+.badge {
+  padding: 0.3125rem $badge-padding-x;
+  font-size: 0.75rem;
+
+  h1 &, {
+    transform: translateY(-.3125rem);
+  }
+  h2 & {
+    transform: translateY(-.25rem);
+  }
+  h4 &, h3 & {
+    transform: translateY(-.1875rem);
+  }
+  h5 &, h6 & {
+    transform: translateY(-.125rem);
+  }
+}

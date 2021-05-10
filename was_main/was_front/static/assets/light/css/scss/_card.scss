@@ -1,0 +1,129 @@
+//
+// Override card(accordion)
+//
+.card {
+  .card-title {
+    font-size: $card-title-size;
+  }
+  .card-body {
+    color: $card-body-color;
+
+    .text-muted {
+      color: $card-muted-color !important;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  }
+  &.text-white {
+
+    .card-title,
+    .card-body,
+    .card-text {
+      color: $card-white-color !important;
+
+      small {
+        color: $card-small-color !important;
+      }
+    }
+  }
+}
+@each $color, $value in $theme-colors {
+  .card {
+    &.bg-#{$color} {
+      @if $color == primary {
+        .card-header {
+          background-color: $card-header-primary-bg;
+        }
+      } @else if $color == secondary {
+        .card-header {
+          background-color: $card-header-secondary-bg;
+        }
+      } @else if $color == success {
+        .card-header {
+          background-color: $card-header-success-bg;
+        }
+      } @else if $color == danger {
+        .card-header {
+          background-color: $card-header-danger-bg;
+        }
+      } @else if $color == info {
+        .card-header {
+          background-color: $card-header-info-bg;
+        }
+      } @else if $color == warning {
+        color: $card-header-warning-text-color !important;
+
+        .card-header {
+          background-color: $card-header-warning-bg;
+        }
+        .card-title {
+          color: $card-warning-title-color !important;
+        }
+        .card-body,
+        .card-text {
+          color: $card-warning-body-color !important;
+        }
+      } @else if $color == light {
+        // color: $card-white-color;
+
+        // .card-header {
+        //   background-color: $card-header-light-bg;
+        // }
+      } @else if $color == dark {
+        .card-header {
+          background-color: $card-header-dark-bg;
+        }
+      }
+    }
+  }
+}
+
+.accordion {
+  > .card {
+    overflow: hidden;
+
+    .card-header {
+      padding: 0;
+      margin-bottom: -$accordion-card-border-width;
+      background-color: $accordion-card-header-bg;
+
+      &::after {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 14px;
+        width: 20px;
+        height: 20px;
+        background: no-repeat 50% / 20px;
+        background-image: $accordion-card-icon;
+        content: "";
+        transition: transform 0.2s ease;
+      }
+      &.active::after {
+        transform: rotate(180deg);
+      }
+      .btn {
+        vertical-align: top;
+
+        &.btn-link {
+          width: 100%;
+          padding: $accordion-card-spacer-y $accordion-card-spacer-x;
+          color: $accordion-card-header-color;
+          text-align: left;
+
+          @include hover {
+            color: $accordion-card-header-color;
+          }
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    .card-body {
+      padding: $accordion-card-spacer;
+    }
+  }
+}

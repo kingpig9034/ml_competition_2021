@@ -1,0 +1,8 @@
+//
+// Override breadcrumb
+//
+.breadcrumb {
+  &.breadcrumb-sm {
+    padding: $breadcrumb-padding-y-sm $breadcrumb-padding-x;
+  }
+}

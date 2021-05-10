@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{%csrf_token%}
+
+        <!-- theme-contents -->
+        <main class="theme-contents contents-mt ">
+        <!-- video contents-->  
+          <div class="d-flex flex-column-reverse flex-md-row justify-content-md-between align-items-md-center mb-6">
+            <h2 class="mt-3 mb-0 mt-md-0 text-black-87 font-weight-normal">SKT Answer File Upload</h2>
+            
+          </div>
+          <button type="button" class="btn btn-primary js-upload-photos">
+            <span class="glyphicon glyphicon-cloud-upload"></span> Upload Answer
+          </button>
+          
+          {# 2. FILE INPUT TO BE USED BY THE PLUG-IN #}
+          <input id="fileupload" type="file" name="file" multiple
+                 style="display: none;"
+                 data-url="{% url 'frontend:skt_upload' %}"
+                 data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+          
+          {# 3. TABLE TO DISPLAY THE UPLOADED PHOTOS #}
+          <div>
+              <br>
+          </div>
+          <table id="gallery" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Uploaded Answer List</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for score in scores %}
+                <tr>
+                  <td><a href="{{ score.file.url }}">{{ score.file.name }}  </a><br>uploaded_at : {{ score.create_date }} <br>score : {{score.score}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+       
+        </main>
+        <!-- /theme-contents -->
+      
+
+   
+{% endblock %}
+{% block modal %}
+{% endblock %}
+{% block javascript %}
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+    
+    <!-- UI Script -->
+    <script src="{% static 'assets/common/js/vendor/perfect_scrollbar_1.4.0/perfect_scrollbar.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/ui.js' %}"></script>
+    <script src="{% static 'assets/common/js/demo.js' %}"></script>
+
+    <script src="{% static 'js/vendor/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'js/jquery.fileupload.js' %}"></script>
+    <script>
+        $(function () {
+        /* 1. OPEN THE FILE EXPLORER WINDOW */
+        $(".js-upload-photos").click(function () {
+            $("#fileupload").click();
+        });
+        
+        /* 2. INITIALIZE THE FILE UPLOAD COMPONENT */
+        $("#fileupload").fileupload({
+            dataType: 'json',
+            done: function (e, data) {  /* 3. PROCESS THE RESPONSE FROM THE SERVER */
+            if (data.result.is_valid) {
+                $("#gallery tbody").prepend(
+                "<tr><td><a href='" + data.result.url + "'>" + data.result.name + "</a><br>uploaded_at : " + data.result.create_date +  "<br>score : " + data.result.score + "</td></tr>"
+                )
+            }
+            }
+        });
+
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,222 @@
+//
+// Override variables
+//
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1368px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// Grid columns
+$grid-gutter-width:  24px !default;
+
+// Spacing
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.25),
+    5: ($spacer * 1.5),
+    6: ($spacer * 2),
+    7: ($spacer * 2.5),
+    8: ($spacer * 3),
+    9: ($spacer * 3.5),
+    10: ($spacer * 4)
+  ),
+  $spacers
+);
+
+// Components
+$theme-transition-all-out:                  all .3s ease-out !default;
+$theme-transition-all-in:                   all .3s ease-in !default;
+
+// alert
+$alert-padding-x:                           1rem !default;
+$alert-focus-width:                         .25rem !default;
+
+// Breadcrumbs
+$breadcrumb-padding-y-sm:                   .5rem !default;
+
+// Badges
+$badge-padding-y:                           .3125rem !default;
+$badge-padding-x:                           .5rem !default;
+
+// Close
+$close-text-shadow:                         none !default;
+$close-bg:                                  str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$close-bg-color}' viewBox='0 0 24 24'%3e%3cpath d='M19.85 5.423l.126-.127-1.271-1.272-6.704 6.704L5.425 4.15l-.129-.126-1.272 1.272 6.705 6.703-6.578 6.577-.127.127 1.272 1.272 6.705-6.704 6.576 6.577.128.127 1.27-1.272L13.274 12z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// Carousel
+$carousel-control-width:                    5.5rem !default;
+$carousel-control-opacity:                  .6 !default;
+$carousel-control-hover-opacity:            1 !default;
+$carousel-control-icon-width:               36px !default;
+$carousel-control-prev-icon-bg:             str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 28 28'%3e%3cpath d='M18.834 23.24l-1.357 1.358L8.878 16l8.599-8.598 1.357 1.357L11.594 16z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$carousel-control-next-icon-bg:             str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 28 28'%3e%3cpath d='M13.166 23.24l1.357 1.358L23.122 16l-8.599-8.598-1.357 1.357L20.406 16z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// Card
+$card-title-size:                           1.125rem !default;
+$accordion-card-spacer:                     .9375rem 1.25rem !default;
+$accordion-card-spacer-y:                   .6875rem !default;
+$accordion-card-spacer-x:                   1.25rem !default;
+$accordion-card-border-width:               .125rem !default;
+$accordion-card-icon:                       str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M5.475 7.229l-.849.848L10 13.451l5.374-5.374-.849-.848L10 11.754z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// Caret
+$caret-width:                               .5rem !default;
+$caret-spacing:                             $caret-width * 1.5 !default;
+$caret-split-spacing:                       $caret-width * .35 !default;
+$caret-vertical-x-align:                    $caret-width * .2 !default;
+$caret-vertical-x-align-sm:                 $caret-width * -.05 !default;
+$caret-vertical-up-align:                   $caret-width * -.05 !default;
+$caret-vertical-up-align-sm:                $caret-width * -.3 !default;
+$caret-vertical-down-align:                 $caret-width * .45 !default;
+$caret-vertical-down-align-sm:              $caret-width * .2 !default;
+// $caret-icon-bg:                          str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$caret-icon-color}' d='M5.475 7.229l-.849.848L10 13.451l5.374-5.374-.849-.848L10 11.754z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// Dropdown
+$dropdown-item-padding-y:                   .25rem !default;
+$dropdown-item-padding-x:                   1rem !default;
+
+// Form
+$input-btn-padding-x-sm:                    .6875rem !default;
+$input-btn-padding-y-sm:                    .125rem !default;
+$input-btn-padding-x:                       .9375rem !default;
+$input-btn-padding-x-lg:                    1.188rem !default;
+$input-height-inner-half:                   19px !default;
+
+$custom-checkbox-icon-width:                1rem !default;
+$custom-checkbox-icon-height:               $custom-checkbox-icon-width !default;
+$custom-checkbox-icon-line-height:          $custom-checkbox-icon-width !default;
+$custom-checkbox-indicator-border-radius:   .1875rem !default;
+
+$custom-radio-icon-width:                   1rem !default;
+$custom-radio-icon-height:                  $custom-radio-icon-width !default;
+$custom-radio-icon-line-height:             $custom-radio-icon-width !default;
+
+$custom-select-bg-size:                     20px 20px !default;
+$custom-select-indicator:                   str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M5.475 7.229l-.849.848L10 13.451l5.374-5.374-.849-.848L10 11.754z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-select-indicator-padding:           1.5rem !default;
+$custom-select-feedback-icon-position:      center right (1rem + $custom-select-indicator-padding) !default;
+
+$custom-range-thumb-width:                  .625rem !default;
+$custom-range-thumb-height:                 $custom-range-thumb-width !default;
+$custom-range-thumb-border-radius:          .625rem !default;
+$custom-range-track-height:                 .125rem !default;
+
+$custom-switch-before-radius:               0.75rem !default;
+$custom-switch-before-width:                2.5rem !default;
+$custom-switch-before-height:               1.5rem !default;
+$custom-switch-after-radius:                50% !default;
+$custom-switch-after-width:                 1.375rem !default;
+$custom-switch-after-height:                $custom-switch-after-width  !default;
+$custom-switch-after-width-left:            1.5rem !default;
+
+$custom-checkbox-indicator-icon-checked:    str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 7'%3e%3cpath fill='#{$custom-control-indicator-checked-color}' d='M3.214 7L0 3.693l1.022-1.046L3.214 4.9 7.978 0 9 1.053z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-radio-indicator-icon-checked:       str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='#{$primary}'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-radio-indicator-icon-disabled:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='#{$gray-500}'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+$custom-search-clear-width:                  1.125rem !default;
+$custom-search-clear-height:                 $custom-search-clear-width !default;
+$custom-search-clear-radius:                 50% !default;
+$custom-search-clear-bg-position:            50% !default;
+$custom-search-clear-bg-size:                0.875rem 0.875rem !default;
+$custom-search-padding-x:                    2.25rem !default;
+
+// Form validation
+$form-feedback-icon-valid:                  str-replace(url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$form-feedback-icon-valid-color}' d='M10.0000153,1.5c-4.6943974,0-8.5,3.805603-8.5,8.5s3.805603,8.5,8.5,8.5c4.694458,0,8.5-3.805603,8.5-8.5 S14.6944733,1.5,10.0000153,1.5z M8.8823395,13.6410522L5.3291774,10.086853l0.9204102-0.9182739l2.6327519,2.633728 l5.0185547-5.0185547l0.918396,0.918396L8.8823395,13.6410522z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$form-feedback-icon-invalid:                str-replace(url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$form-feedback-icon-invalid-color}' d='M10.0000095,1.5c-4.6943965,0-8.5,3.805542-8.5,8.5c0,4.694397,3.805603,8.5,8.5,8.5s8.5-3.805603,8.5-8.5 C18.5000095,5.305542,14.6944065,1.5,10.0000095,1.5z M9.2587986,5.8630371h1.4824219v5.7739258H9.2587986V5.8630371z M10.0000095,14.3000412c-0.4832153,0-0.875-0.3917847-0.875-0.875c0-0.4832764,0.3917847-0.875,0.875-0.875 c0.4832764,0,0.875,0.3917236,0.875,0.875C10.8750095,13.9082565,10.4832859,14.3000412,10.0000095,14.3000412z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// List group
+// $list-group-item-padding-top:               1rem !default;
+// $list-group-item-padding-bottom:            1rem !default;
+$list-group-item-padding-x:                 1.188rem !default;
+$list-group-action-focus-shadow:            0 0 0 0.2rem rgba($list-group-action-focus-shadow-color, 0.5) !default;
+
+// Modal
+$modal-title-size:                          1.125rem !default;
+
+// Nav
+$nav-tabs-outlines-border-radius:           1.313rem  !default;
+
+// Navbar
+$navbar-padding-y: 													$spacer / 1.5 !default;
+$navbar-padding-x:                          1.25rem !default;
+$navbar-toggler-font-size:                  1rem !default;
+$navbar-dark-toggler-icon-bg:               str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$gray-600}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
+$navbar-dark-toggler-icon-active-bg:        str-replace(url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpolygon fill='#{$gray-600}' points='15.8335571,14.7730713 11.0605469,10.000061 15.8336182,5.2269897 14.7730103,4.1663818 9.999939,8.9394531 5.2269282,4.1664429 4.1663814,5.2269897 8.9394531,10 4.1663814,14.7730103 5.2269893,15.8336182 10,11.0605469 14.7730103,15.8336182'/%3e%3c/svg%3e"), "#", "%23") !default;
+$navbar-light-toggler-icon-active-bg:       str-replace(url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpolygon fill='#{$navbar-light-color}' points='15.8335571,14.7730713 11.0605469,10.000061 15.8336182,5.2269897 14.7730103,4.1663818 9.999939,8.9394531 5.2269282,4.1664429 4.1663814,5.2269897 8.9394531,10 4.1663814,14.7730103 5.2269893,15.8336182 10,11.0605469 14.7730103,15.8336182'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// Pagination
+$pagination-padding-y-sm:                   0 !default;
+$pagination-padding-y-lg:                   .5rem !default;
+
+// Typography
+$font-size-base:                            1rem !default;
+$h1-font-size:                              $font-size-base * 1.75 !default;
+$h2-font-size:                              $font-size-base * 1.25 !default;
+$h3-font-size:                              $font-size-base * 1.125 !default;
+$h4-font-size:                              $font-size-base * 1.125 !default;
+$h5-font-size:                              $font-size-base * 1 !default;
+$h6-font-size:                              0.875rem !default;
+$headings-font-weight:                      700 !default;
+$headings-font-weight-400:                  400 !default;
+$display4-size:                             2.5rem !default;
+$display4-line-height:                      1.5 !default;
+$text-weight-300:                           300 !default;
+$text-weight-400:                           400 !default;
+$text-weight-700:                           700 !default;
+$content1-size:                             1.25rem !default;
+$content2-size:                             1rem !default;
+$content3-size:                             0.875rem !default;
+$content4-size:                             0.75rem !default;
+$content5-size:                             0.625rem !default;
+$content-line-height:                       1.5;
+$font-size-sm:                              $font-size-base * .75 !default;
+$lead-font-size:                            $font-size-base * 1.75 !default;
+
+// Tables
+$table-cell-padding:                        .375rem .8125rem !default;
+$table-cell-padding-sm:                     .125rem .25rem !default;
+$table-cell-padding-xsm:                    .1875rem .125rem .125rem !default;
+$table-caption-margin:                      .25rem 0 0 !default;
+
+// Toasts
+$toast-padding-x:                           1.25rem !default;
+$toast-padding-y:                           1rem !default;
+$toast-body-padding-x:                      1.25rem !default;
+$toast-icon-body-padding-x:                 3rem !default;
+
+// Tooltips
+$tooltip-opacity:                           1 !default;
+
+// Wizard
+$wizard-bg-position-top:                    0.8125rem !default;
+$wizard-items-font-size:                    0.75rem !default;
+$wizard-stage-width:                        1.75rem !default;
+$wizard-stage-height:                       $wizard-stage-width !default;
+$wizard-stage-mb:                           0.3125rem !default;
+$wizard-stage-radius:                       50% !default;
+$wizard-stage-font-size:                    .875rem !default;
+$wizard-stage-line-height:                  1.563rem !default;
+$wizard-stage-icon-size:                    1rem !default;
+$wizard-stage-bg-height:                    0.0625rem !default;

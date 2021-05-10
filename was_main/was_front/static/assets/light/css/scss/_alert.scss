@@ -1,0 +1,218 @@
+//
+// Override alert
+//
+.alert-heading {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.alert-icon {
+  // padding-left: $alert-icon-padding;
+  &::before {
+    @extend .icomoon;
+
+    position: relative;
+    top: 0.125rem;
+    margin-right: 0.4375rem;
+    font-size: 1.25rem;
+    vertical-align: top;
+  }
+}
+.alert-dismissible {
+  .close {
+    font-size: 0;
+
+    &:before {
+      font-size: 1.25rem;
+    }
+  }
+}
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    border-color: transparent;
+
+    .close {
+      height: 100%;
+      border-radius: 0.25rem;
+    }
+
+    @if $color == primary {
+      color: $contextual-primary-color;
+      background-color: $contextual-primary-bg-color;
+
+      .alert-link {
+        color: $contextual-primary-color;
+      }
+      .close {
+        color: $contextual-primary-color;
+
+        @include hover {
+          background-color: darken($contextual-primary-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-primary-color , .5);
+          }
+        }
+      }
+    } @else if $color == secondary {
+      color: $contextual-secondary-color;
+      background-color: $contextual-secondary-bg-color;
+
+      .alert-link {
+        color: $contextual-secondary-color;
+      }
+      .close {
+        color: $contextual-secondary-color;
+
+        @include hover {
+          background-color: darken($contextual-secondary-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-secondary-color , .5);
+          }
+        }
+      }
+    } @else if $color == success {
+      color: $contextual-success-color;
+      background-color: $contextual-success-bg-color;
+
+      &.alert-icon {
+        &::before {
+          color: $success;
+          content: "\e917";
+        }
+      }
+      .alert-link {
+        color: $contextual-success-color;
+      }
+      .close {
+        color: $contextual-success-color;
+
+        @include hover {
+          background-color: darken($contextual-success-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-success-color , .5);
+          }
+        }
+      }
+    } @else if $color == danger {
+      color: $contextual-danger-color;
+      background-color: $contextual-danger-bg-color;
+
+      &.alert-icon {
+        &::before {
+          color: $danger;
+          content: "\e918";
+        }
+      }
+      .alert-link {
+        color: $contextual-danger-color;
+      }
+      .close {
+        color: $contextual-danger-color;
+
+        @include hover {
+          background-color: darken($contextual-danger-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-danger-color , .5);
+          }
+        }
+      }
+    } @else if $color == info {
+      color: $contextual-info-color;
+      background-color: $contextual-info-bg-color;
+
+      &.alert-icon {
+        &::before {
+          content: "\e91a";
+        }
+      }
+      .alert-link {
+        color: $contextual-info-color;
+      }
+      .close {
+        color: $contextual-info-color;
+
+        @include hover {
+          background-color: darken($contextual-info-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-info-color , .5);
+          }
+        }
+      }
+    } @else if $color == warning {
+      color: $contextual-warning-color;
+      background-color: $contextual-warning-bg-color;
+
+      &.alert-icon {
+        &::before {
+          content: "\ea1a";
+        }
+      }
+      .alert-link {
+        color: $contextual-warning-color;
+      }
+      .close {
+        color: $contextual-warning-color;
+
+        @include hover {
+          background-color: darken($contextual-warning-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-warning-color , .5);
+          }
+        }
+      }
+    } @else if $color == light {
+      color: $contextual-light-color;
+      background-color: $contextual-light-bg-color;
+
+      .alert-link {
+        color: $contextual-light-color;
+      }
+      .close {
+        color: $contextual-light-color;
+
+        @include hover {
+          background-color: darken($contextual-light-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-light-color , .5);
+          }
+        }
+      }
+    } @else if $color == dark {
+      color: $contextual-dark-color;
+      background-color: $contextual-dark-bg-color;
+
+      .alert-link {
+        color: $contextual-dark-color;
+      }
+      .close {
+        color: $contextual-dark-color;
+
+        @include hover {
+          background-color: darken($contextual-dark-bg-color, 10%);
+        }
+        &:not(:disabled):not(.disabled) {
+          &:focus {
+            box-shadow: 0 0 0 $alert-focus-width rgba($contextual-light-color , .5);
+          }
+        }
+      }
+    }
+
+    .alert-link {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+//
+// Override jumbotron
+//
+.jumbotron {
+  p:not(.lead) {
+    font-size: .875rem;
+  }
+  @include media-breakpoint-up(sm) {
+    padding: ($jumbotron-padding * 2) ($jumbotron-padding * 2);
+  }
+}

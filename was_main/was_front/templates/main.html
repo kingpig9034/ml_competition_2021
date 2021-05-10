@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{%csrf_token%}
+
+        <!-- theme-contents -->
+        <main class="theme-contents contents-mt ">
+        GUIDE
+        <br>
+        <br>- 답안지 파일 이름에 한글을 사용할 수 없습니다.
+        <br>- 점수가 None이라면 답안지의 형식이 잘못 된 것입니다. 샘플 답안지와 동일한 형식을 갖춰 주세요.
+        <br>- 리더보드에는 전체 등수 및 자신의 등수 상위 20개가 표시됩니다.
+
+        </main>
+        <!-- /theme-contents -->
+      
+
+   
+{% endblock %}
+{% block modal %}
+{% endblock %}
+{% block javascript %}
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+    
+    <!-- UI Script -->
+    <script src="{% static 'assets/common/js/vendor/perfect_scrollbar_1.4.0/perfect_scrollbar.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/ui.js' %}"></script>
+    <script src="{% static 'assets/common/js/demo.js' %}"></script>
+
+    <script src="{% static 'js/vendor/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'js/jquery.fileupload.js' %}"></script>
+
+{% endblock %}

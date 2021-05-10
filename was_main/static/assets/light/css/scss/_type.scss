@@ -1,0 +1,98 @@
+//
+// Override Types
+//
+// Headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: $headings-font-weight;
+}
+h1, .h1 {
+  @include font-size($h1-font-size);
+  font-weight: $headings-font-weight-400;
+  line-height: $headings-line-height;
+}
+h2, .h2 {
+  @include font-size($h2-font-size);
+  line-height: $headings-line-height;
+}
+h3, .h3 {
+  @include font-size($h3-font-size);
+  line-height: $headings-line-height;
+}
+h4, .h4 {
+  @include font-size($h4-font-size);
+  font-weight: $headings-font-weight-400;
+  line-height: $headings-line-height;
+}
+h5, .h5 {
+  @include font-size($h5-font-size);
+  line-height: $headings-line-height;
+}
+h6, .h6 {
+  @include font-size($h6-font-size);
+  line-height: $headings-line-height;
+}
+
+// Type display classes
+.display-4 {
+  @include font-size($display4-size);
+  line-height: $display4-line-height;
+}
+
+// Text weight
+.text-weight-3 { font-weight: $text-weight-300; }
+.text-weight-4 { font-weight: $text-weight-400; }
+.text-weight-7 { font-weight: $text-weight-700; }
+
+// Content text size
+.content-1, .content-2, .content-3, .content-4, .content-5 {
+  line-height: $content-line-height;
+}
+.content-1 { @include font-size($content1-size); }
+.content-2 { @include font-size($content2-size); }
+.content-3 { @include font-size($content3-size); }
+.content-4 { @include font-size($content4-size); }
+.content-5 { @include font-size($content5-size); }
+
+// Border grays colors
+.bd-grays-9 { border-color: $bd-grays-9 !important; }
+.bd-grays-8 { border-color: $bd-grays-8 !important; }
+.bd-grays-7 { border-color: $bd-grays-7 !important; }
+.bd-grays-6 { border-color: $bd-grays-6 !important; }
+.bd-grays-5 { border-color: $bd-grays-5 !important; }
+.bd-grays-4 { border-color: $bd-grays-4 !important; }
+.bd-grays-3 { border-color: $bd-grays-3 !important; }
+.bd-grays-2 { border-color: $bd-grays-2 !important; }
+.bd-grays-1 { border-color: $bd-grays-1 !important; }
+
+// Background grays colors
+.bg-grays-9 { background-color: $bg-grays-9 !important; }
+.bg-grays-8 { background-color: $bg-grays-8 !important; }
+.bg-grays-7 { background-color: $bg-grays-7 !important; }
+.bg-grays-6 { background-color: $bg-grays-6 !important; }
+.bg-grays-5 { background-color: $bg-grays-5 !important; }
+.bg-grays-4 { background-color: $bg-grays-4 !important; }
+.bg-grays-3 { background-color: $bg-grays-3 !important; }
+.bg-grays-2 { background-color: $bg-grays-2 !important; }
+.bg-grays-1 { background-color: $bg-grays-1 !important; }
+
+// Border display
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    .border-#{$breakpoint}-left-none {
+      border-left: none !important;
+    }
+
+    .border-#{$breakpoint}-right-none {
+      border-right: none !important;
+    }
+
+    .border-#{$breakpoint}-top-none {
+      border-top: none !important;
+    }
+
+    .border-#{$breakpoint}-bottom-none {
+      border-bottom: none !important;
+    }
+  }
+}

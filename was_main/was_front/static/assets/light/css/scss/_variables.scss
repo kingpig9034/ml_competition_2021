@@ -1,0 +1,36 @@
+//
+// Customized Bootstrap variables
+//
+// Import theme default colors
+@import "variables/colors";
+
+// Import theme default svg
+@import "variables/svg";
+
+// Customized Bootstrap variables
+@import "variables/variables";
+
+//
+// Theme Variables
+//
+// theme-header
+$theme-header-height:                        3.375rem !default;
+$theme-header-navbar-spacing:                0.4375rem 0 0.4375rem 1.063rem !default;
+$theme-header-search-transition:             width .3s ease-in !default;
+$theme-header-search-form-transition-out:    width, padding, border, opacity, .3s ease-out !default;
+$theme-header-search-form-transition-in:     width, padding, border, opacity, .3s ease-in !default;
+
+// theme-body
+// theme-sidebar
+$theme-sidebar-max-width:                    15.25rem !default;
+$theme-sidebar-left:                         15.88rem !default;
+$theme-contents-spacing:                     1rem !default;
+$theme-contents-spacing-sm:                  1.5rem !default;
+$theme-contents-spacing-md:                  5.5rem !default;
+$theme-contents-overlap-spacing-md:          3rem !default;
+$theme-contents-spacing-overlap-md:          1.5rem  !default;
+
+// theme-contents
+
+// theme-footer
+$theme-footer-height:                        50px !default;

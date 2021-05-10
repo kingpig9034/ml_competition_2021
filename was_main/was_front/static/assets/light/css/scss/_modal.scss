@@ -1,0 +1,24 @@
+//
+// Override modal
+//
+.modal {
+  z-index: 1072;
+  
+  .modal-header,
+  .modal-footer {
+    border-color: $modal-border-color;
+  }
+  .modal-title {
+    font-size: $modal-title-size;
+  }
+  .modal-body {
+    color: $modal-body-color;
+  }
+  .close {
+    font-size: 0;
+
+    &:before {
+      font-size: 1.25rem;
+    }
+  }
+}

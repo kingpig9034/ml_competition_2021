@@ -1,0 +1,39 @@
+//
+// Override navbar
+//
+// Navbar
+.navbar {
+  &.navbar-dark {
+    .navbar-toggler-icon {
+      &.active {
+        background-image: $navbar-dark-toggler-icon-active-bg;
+      }
+    }
+  }
+  &.bg-light {
+    background-color: $navbar-bg-light !important;
+  }
+  &.navbar-light {
+    .navbar-toggler-icon {
+      &.active {
+        background-image: $navbar-light-toggler-icon-active-bg;
+      }
+    }
+  }
+  .navbar-items {
+    .navbar-toggler {
+      border: 0;
+      padding: 0;
+
+      & + .navbar-brand {
+        margin-right: 0;
+      }
+    }
+  }
+  .show > .nav-link,
+  .active > .nav-link,
+  .nav-link.show,
+  .nav-link.active {
+    font-weight: bold;
+  }
+}

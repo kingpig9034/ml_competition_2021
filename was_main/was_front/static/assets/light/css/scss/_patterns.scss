@@ -1,0 +1,952 @@
+//
+// Patterns styles
+//
+// pattern-header
+.pattern-header {
+	display: flex;
+	align-items: center;
+	height: 3.375rem;
+	padding: 0 1.25rem;
+	border-bottom: 1px solid $bd-grays-3;
+
+	h1 {
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+}
+
+// pattern-body
+.pattern-body {
+	padding: 0 $spacer;
+
+	&.pattern-centered {
+		display: flex;
+		align-items: center;
+		height: calc(100vh - 3.375rem);
+	}
+}
+
+//ui-btnLike
+.ui-btnLike.active {
+	.glyphicons-outline_favorite:before {
+		content: "\ea06";
+		color: #f00554 !important;
+	}
+}
+
+//
+// error
+//
+.error {
+	width :100%;
+	margin-top: -0.8125rem;
+	text-align: center;
+
+	.error-title {
+		font-size: 3.75rem;
+		color: $text-grays-6;
+
+		@include media-breakpoint-up(md) {
+			font-size: 7rem;
+			line-height: 1.07;
+		}
+	}
+	.error-msg {
+		margin-bottom: 2.5rem;
+		font-size: 0.875rem;
+		color: $text-grays-6;
+
+		@include media-breakpoint-up(md) {
+			margin-top: 1rem;
+			margin-bottom: 4rem;
+			font-size: 1.5rem;
+		}
+	}
+}
+
+//
+// sign in
+//
+.signin {
+	display: flex;
+  flex-direction: column;
+	width: 100%;
+	max-width: 518px;
+	padding: 1.25rem;
+
+	.form-signin {
+		border: 0;
+		word-break: keep-all;
+
+		@include media-breakpoint-up(sm) {
+			padding: 4rem;
+			border: 1px solid #efeff4;
+		}
+
+		.signin-tooltip {
+			cursor: pointer;
+
+			i {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+		.form-append {
+			overflow: hidden;
+
+			.form-control {
+				float: left;
+				display: inline-block;
+				width: calc(100% - 138px);
+			}
+			.btn {
+				float: right;
+				width: 8.125rem;
+				letter-spacing: -0.5px;
+				vertical-align: top;
+			}
+			.invalid-feedback {
+				clear: both;
+			}
+		}
+	}
+}
+
+//
+// sign up
+//
+.form-signup {
+	width: 100%;
+	max-width: 32.38rem;
+	padding: 4rem 0.75rem;
+
+	@include media-breakpoint-up(sm) {
+		padding: 4rem;
+		border: 1px solid #efeff4;
+	}
+	@include media-breakpoint-up(md) {
+		margin: 1rem 0;
+	}
+
+	.custom-control-label {
+		display: inline-block;
+		vertical-align: middle;
+		strong {
+			font-size: 1.125rem;
+		}
+		+small {
+			font-size: 0.875rem;
+		}
+	}
+
+	.input-group-append {
+		margin-left: 0.5rem;
+	}
+
+	.sign-msg {
+		color: $gray-800;
+	}
+
+	.terms {
+		max-height: 5.625rem;
+		padding: 0.75rem 1rem;
+		overflow-y: scroll;
+		border: 0.0625rem solid #e5e5ea;
+		color: $gray-700;
+
+		.tit {
+			display: block;
+			font-weight: bold;
+			font-size: 0.875rem;
+		}
+		.txt {
+			margin-bottom: 0;
+			font-size: 0.75rem;
+		}
+	}
+}
+
+//
+// setting
+//
+.settings {
+	max-width: 672px;
+	width: 100%;
+
+	.custom-select {
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			max-width: 216px;
+		}
+	}
+}
+
+//
+// list
+//
+.list {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.75rem;
+
+	.list-option-group {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.date-picker  {
+		display: flex;
+		width: 100%;
+		margin-bottom: 0.75rem;
+	}
+	.list-options {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 0.75rem;
+
+		.dropdown {
+			width: 100%;
+			min-width: 6.25rem;
+			margin-bottom: 0;
+
+			.btn {
+				width: 100%;
+			}
+			&:first-child {
+				margin-right: 0.25rem;
+			}
+			&:last-child {
+				margin-left: 0.25rem;
+			}
+		}
+	}
+	.custom-search {
+		width: 100%;
+		margin-bottom: 0.75rem;
+	}
+	.list-after-checked {
+		display: none;
+		min-width: 15rem;
+		height: 2.375rem;
+	}
+	.list-after-checked.is-block {
+		display: flex;
+	}
+	.list-before-checked.is-none {
+		display: none;
+	}
+	@media (min-width: 1200px) {
+		.list-option-group {
+			flex-direction: row;
+
+			.date-picker {
+				min-width: 20.63rem;
+				max-width: 20.63rem;
+				margin-right: 0.5rem;
+			}
+			.dropdown {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+	@media (min-width: 1360px) {
+		flex-direction: row;
+
+		.list-option-group {
+			margin-right: 0.5rem;
+
+			.custom-search {
+				max-width: 18.75rem;
+			}
+		}
+	}
+}
+
+//
+// faq
+//
+.accordion {
+	.accordion-tit {
+		padding: 1.75rem 1.5rem 0.5rem;
+		font-size: 1.25rem;
+		border: 1px solid #e5e5ea;
+		border-bottom: 0;
+		border-top-left-radius: 0.25rem;
+		border-top-right-radius: 0.25rem;
+	}
+
+	&.faq {
+		> .card {
+			.card-header {
+				  &::after {
+						display: none;
+					}
+
+				.btn {
+					  &.btn-link {
+							padding: 1rem 1.5rem;
+						}
+				}
+			}
+
+			.card-body {
+				padding: 1rem 1.5rem;
+				font-size: 0.875rem;
+				@include media-breakpoint-up(md) {
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+}
+
+//
+// profile
+//
+.profile {
+  .profile-body{
+    &:first-of-type {
+      width: 100%;
+      @include media-breakpoint-up(md) {
+        width: 33%;
+      }
+			@media (min-width: 1440px) {
+				max-width: 440px;
+			}
+    }
+    &:last-of-type {
+      width: 100%;
+      @include media-breakpoint-up(md) {
+        width: 67%;
+      }
+			@media (min-width: 1440px) {
+				width: calc( 100% - 440px - 16px);
+			}
+    }
+
+		.profile-body-feed {
+			height: calc(100% - 3.438rem);
+		}
+
+		.post-time {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			@include media-breakpoint-up(md) {
+				position: relative;
+				right: auto;
+				bottom: auto;
+			}
+		}
+  }
+
+	.profile-avator {
+		position: relative;
+		width: 6.25rem;
+		height: 6.25rem;
+		margin: 0 auto;
+		background-color: $bg-grays-3;
+		border-radius: 100%;
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 4rem;
+			color: #bbb;
+			transform: translate(-50%, -50%);
+		}
+
+		.profile-avator-img {
+			position: relative;
+			max-width:100%;
+			height: 100%;
+			border-radius: 100%;
+			text-align: center;
+			background: no-repeat center;
+			background-size: cover;
+		}
+	}
+
+	.feed-avator {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+		min-width: 3rem;
+    margin: 0 auto;
+    background-color: $bg-grays-3;
+    border-radius: 100%;
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 1.75rem;
+      color: #bbb;
+      transform: translate(-50%, -50%);
+    }
+
+    .feed-avator-img {
+      position: relative;
+      max-width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      text-align: center;
+      background: no-repeat center;
+      background-size: cover;
+    }
+	}
+
+  .feedPost {
+    .feedPost-img {
+      width: 49.1222%;
+			padding-bottom: 28.205%;
+			background-size: cover;
+			background-position: center center;
+      +.feedPost-img {
+        margin-left: 1.3555%;
+      }
+    }
+  }
+}
+
+//
+// search
+//
+.searchList {
+	max-width: 904px;
+	width: 100%;
+}
+
+.search {
+	.search-img {
+		width: 5rem;
+		height: 5rem;
+    margin-top: 0.25rem;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		@include media-breakpoint-up(md) {
+			width: 5.75rem;
+			height: 5.75rem;
+		}
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+    }
+	}
+
+	.search-disc {
+		width: calc(100% - 80px - 24px);
+		@include media-breakpoint-up(md) {
+			width: calc(100% - 92px - 24px);
+		}
+
+		.text-break {
+		  word-break: break-word !important;
+			-ms-word-break: break-all !important;
+		}
+	}
+
+	p {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		max-height: calc(24px * 4);
+
+		@include media-breakpoint-up(md) {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			max-height: calc(24px * 2);
+		}
+	}
+}
+
+//
+// chart
+//
+.chart {
+	display: flex;
+	flex-direction: column-reverse;
+	// height: 100%;
+
+	> div {
+		position: relative;
+	}
+}
+
+.legend span {
+	display: inline-block;
+	margin: 0 1.25rem 0 0;
+	font-size: 0.75rem;
+	color: #8e8e93;
+	vertical-align: top;
+	cursor: default;
+}
+
+.legend span.active {
+	text-decoration: line-through;
+}
+
+.legend span i {
+	display: inline-block;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-radius: 0.375rem;
+	margin: 0.1875rem 0.5rem 0 0;
+	vertical-align: top;
+}
+
+/* chart-doughnut & chart-progress */
+.chart.chart-doughnut,
+.chart.chart-progress {
+	margin: 0 5.4%;
+}
+
+.chart.chart-doughnut canvas,
+.chart.chart-progress canvas {
+	max-width: 60%;
+	margin: 0 auto;
+}
+
+.chart.chart-doughnut.legend-top .legend,
+.chart.chart-doughnut.legend-bottom .legend {
+	text-align: center;
+}
+
+.chart.chart-doughnut.legend-bottom {
+	margin-top: 3%;
+}
+
+.chart.chart-doughnut.legend-bottom .legend {
+	margin-top: 1.5rem;
+}
+
+.chart.chart-doughnut.legend-top {
+	flex-direction: column;
+	margin-bottom: 3%;
+}
+
+.chart.chart-doughnut.legend-top .legend {
+	margin: -1.3% 0 5.2%;
+}
+
+.chart.chart-progress {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+/* chart-line */
+.chart.chart-line {
+	text-align: left;
+}
+
+.chart.chart-line .legend {
+	padding: 0 0.625rem;
+}
+
+.chart.chart-line.legend-bottom .legend {
+	margin-top: 1.25rem;
+}
+
+.chart.chart-line.legend-top {
+	flex-direction: column;
+}
+
+.chart.chart-line.legend-top .legend {
+	margin-bottom: 1.25rem;
+}
+
+/* chart pie */
+.chart.chart-pie.legend-bottom .legend {
+	margin-top: 1.25rem;
+}
+
+.chart.chart-pie.legend-top .legend,
+.chart.chart-pie.legend-bottom .legend {
+	text-align: center;
+}
+
+/* chart bubble */
+.chart.chart-bubble.legend-bottom .legend {
+	margin-top: 1.25rem;
+}
+
+/*chart bar*/
+.chart-bar.legend-bottom .legend {
+	margin-top: 1.25rem;
+}
+
+.chart-horizontalBar.legend-top .legend,
+.chart-bar.legend-top .legend {
+	margin-bottom: 3.1%;
+}
+
+.chart-horizontalBar.legend-top,
+.chart-bar.legend-top {
+	flex-direction: column;
+}
+
+/*char polarArea*/
+.chart.chart-polarArea.legend-bottom .legend {
+	margin-top: 1.5rem;
+}
+
+.chart.chart-polarArea.legend-top .legend,
+.chart.chart-polarArea.legend-bottom .legend {
+	text-align: center;
+}
+
+/*chart radar*/
+.chart.chart-radar.legend-bottom .legend {
+	margin-top: 1.5rem;
+}
+
+.chart.chart-radar.legend-top .legend,
+.chart.chart-radar.legend-bottom .legend {
+	text-align: center;
+}
+
+
+
+//
+// dataTable style
+//
+table.dataTable {
+	clear: both;
+	margin-top: 24px !important;
+	margin-bottom: 32px !important;
+	max-width: none !important;
+	border-collapse: separate !important;
+	border-spacing: 0;
+
+	td,
+	th {
+
+		&.dataTables_empty {
+			text-align: center;
+		}
+	}
+
+	// Style options for the table. Foundation provides its own, but it is also
+	// useful to have a few more for DataTables
+	&.nowrap {
+
+		th,
+		td {
+			white-space: nowrap;
+		}
+	}
+}
+
+// DataTables' built in feature elements
+div.dataTables_wrapper {
+	div.dataTables_length {
+		label {
+			font-weight: normal;
+			text-align: left;
+			white-space: nowrap;
+		}
+
+		select {
+			width: auto;
+			display: inline-block;
+			margin: 0 0.25rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #2a2c2e;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 1px solid #e5e5ea;
+			border-radius: 0.25rem;
+			transition: border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
+		}
+	}
+
+	div.dataTables_filter {
+		text-align: right;
+
+		label {
+			font-weight: normal;
+			white-space: nowrap;
+			text-align: left;
+		}
+
+		input {
+			margin-left: 0.5em;
+			display: inline-block;
+			width: auto;
+			padding: 0.375rem 0.9375rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #2a2c2e;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 1px solid #e5e5ea;
+			border-radius: 0.25rem;
+			transition: border-color 0.15s ease-in-out,
+		}
+	}
+
+	div.dataTables_info {
+		padding-top: 0.85em;
+		white-space: nowrap;
+		color: #8e8e93;
+	}
+
+	div.dataTables_paginate {
+		margin: 0;
+		white-space: nowrap;
+		text-align: right;
+
+		ul.pagination {
+			margin: 2px 0;
+			white-space: nowrap;
+			justify-content: flex-end;
+		}
+	}
+
+	div.dataTables_processing {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 200px;
+		margin-left: -100px;
+		margin-top: -26px;
+		text-align: center;
+		padding: 1em 0;
+	}
+}
+
+// Sorting - using :before and :after with UTF8 characters
+table.dataTable thead {
+	tr {
+		th {
+			[class^="glyphicons"] {
+				position: relative;
+				top: -2px;
+				display: inline-block;
+				padding-right: 30px;
+				background-image: url('../../common/img/svg/filled/action/uxs_swap.svg');
+				background-repeat: no-repeat;
+				background-position: 100% 0;
+				background-size: 25px 25px;
+				vertical-align: middle;
+			}
+			&.sorting_desc {
+				[class^="glyphicons"] {
+					background-image: url('../../common/img/svg/filled/action/uxs_swap_down.svg');
+				}
+			}
+			&.sorting_asc {
+				[class^="glyphicons"] {
+					background-image: url('../../common/img/svg/filled/action/uxs_swap_up.svg');
+				}
+			}
+		}
+	}
+
+	// >tr>th,
+	// >tr>td {
+
+	// 	&.sorting_asc,
+	// 	&.sorting_desc,
+	// 	&.sorting {
+	// 		padding-right: 2.25rem;
+	// 	}
+
+	// 	&:active {
+	// 		outline: none;
+	// 	}
+	// }
+
+	// .sorting,
+	// .sorting_asc,
+	// .sorting_desc,
+	// .sorting_asc_disabled,
+	// .sorting_desc_disabled {
+	// 	cursor: pointer;
+	// 	position: relative;
+
+	// 	&:before,
+	// 	&:after {
+	// 		display: block;
+	// 		position: absolute;
+	// 		top: 50%;
+	// 		transform: translateY(-50%);
+	// 		opacity: 0.3;
+	// 	}
+
+	// 	&:before {
+	// 		right: 1em;
+	// 		@extend .icomoon;
+	// 		content: "\ea24";
+	// 		margin-right: 0.5rem;
+	// 	}
+
+	// 	&:after {
+	// 		right: 0.5em;
+	// 		@extend .icomoon;
+	// 		content: "\ea23";
+	// 	}
+	// }
+
+	// .sorting_asc:before,
+	// .sorting_desc:after {
+	// 	opacity: 1;
+	// }
+
+	// .sorting_asc_disabled:before,
+	// .sorting_desc_disabled:after {
+	// 	opacity: 0;
+	// }
+}
+
+
+// Scrolling
+div.dataTables_scrollHead table.dataTable {
+	margin-bottom: 0 !important;
+}
+
+div.dataTables_scrollBody {
+	table {
+		border-top: none;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+
+		thead {
+
+			// Hide sort icons
+			.sorting:before,
+			.sorting_asc:before,
+			.sorting_desc:before,
+			.sorting:after,
+			.sorting_asc:after,
+			.sorting_desc:after {
+				display: none;
+			}
+		}
+
+		tbody tr:first-child th,
+		tbody tr:first-child td {
+			border-top: none;
+		}
+	}
+}
+
+div.dataTables_scrollFoot {
+	>.dataTables_scrollFootInner {
+		box-sizing: content-box;
+
+		>table {
+			margin-top: 0 !important;
+			border-top: none;
+		}
+	}
+}
+
+// Responsive
+@media screen and (max-width: 767px) {
+	div.dataTables_wrapper {
+
+		div.dataTables_length,
+		div.dataTables_filter,
+		div.dataTables_info,
+		div.dataTables_paginate {
+			text-align: center;
+		}
+	}
+}
+
+//
+// Bootstrap provides a range of styling options for table's via class name
+// that we want to full support. They sometimes require some customisations
+//
+
+// Condensed
+table.dataTable.table-sm {
+	>thead>tr>th {
+		padding-right: 20px;
+	}
+
+	.sorting,
+	.sorting_asc,
+	.sorting_desc {
+		&:before {
+			top: 5px;
+			right: 0.85em;
+		}
+
+		&:after {
+			top: 5px;
+		}
+	}
+}
+
+// Frustratingly the border-collapse:collapse used by Bootstrap makes the column
+// width calculations when using scrolling impossible to align columns. We have
+// to use `border-collapse: separate`
+table.table-bordered.dataTable {
+
+	th,
+	td {
+		border-left-width: 0;
+
+		&:last-child,
+		&:last-child {
+			border-right-width: 0;
+		}
+	}
+
+	tbody th,
+	tbody td {
+		border-bottom-width: 0;
+	}
+}
+
+// Bordered table
+div.dataTables_scrollHead table.table-bordered {
+	border-bottom-width: 0;
+}
+
+// Responsive tables. We use rows inside the Bootstrap responsive wrapper,
+// so they need to have their margin and padding removed
+div.table-responsive>div.dataTables_wrapper>div.row {
+	margin: 0;
+
+	>div[class^="col-"] {
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+}
+
+.react-data-table {
+  .row {
+    margin: 0 !important;
+
+    .react-bootstrap-table-pagination {
+      &:first-child {
+        padding-left: 0 !important;
+      }
+      &:last-child {
+        padding-right: 0 !important;
+      }
+    }
+  }
+}
