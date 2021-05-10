@@ -18,8 +18,8 @@ def get_SKT_score(submission_path):
     answer_path = "mysuny2021/answer_skt.csv"
     submission_path = submission_path
     with open(answer_path, 'r') as t1, open(submission_path, 'r') as t2:
-        fileone = t1.readlines()
-        filetwo = t2.readlines()
+        fileone = t1.decode('utf-8').readlines()
+        filetwo = t2.decode('utf-8').readlines()
 
     count = 0
     wrong = 0
