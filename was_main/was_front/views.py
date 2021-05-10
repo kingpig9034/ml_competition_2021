@@ -164,7 +164,7 @@ class SKHUploadView(View):
         )
         score.save()
         acc, acc1, recall, precision = get_SKH_score(score.file.path)
-        score.score = precision
+        score.score = acc
         score.save()
         data = {'is_valid': True, 'name': score.file.name, 'url': score.file.url, 'create_date':score.create_date, 'score': score.score}
         
