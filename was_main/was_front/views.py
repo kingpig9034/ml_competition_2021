@@ -178,7 +178,7 @@ class SKTLeaderBoard(View):
         skt_local_score_list = Score.objects.filter(company = 'skt').filter(user_id = Profile.objects.get(user=request.user)).order_by('-score')[0:20]
         return render(self.request, 'skt_leaderboard.html', {'global_score_list':skt_global_score_list, 'local_score_list':skt_local_score_list})
 
-class SKCLeaderBoard(View):
+class SKCLeaderBoard(View): 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return render(request, 'login.html')
