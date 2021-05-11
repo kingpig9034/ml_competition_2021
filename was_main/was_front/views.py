@@ -149,7 +149,7 @@ class SKHUploadView(View):
     def get(self, request , *args, **kwargs):
         if not request.user.is_authenticated:
             return render(request, 'login.html')
-        scores_list = Score.objects.filter(company='skc').filter(user_id=Profile.objects.get(user=request.user)).order_by('-create_date')
+        scores_list = Score.objects.filter(company='skh').filter(user_id=Profile.objects.get(user=request.user)).order_by('-create_date')
         return render(self.request, 'skh_upload.html', {'scores': scores_list})
 
     def post(self, request):
