@@ -71,14 +71,14 @@ def get_SKH_score(submission_path):
     s0n = san[san['PF_x']== 0]
     
     
-    acc = (len(s00) + len(s01)) / len(dt) * 100
-    acc1 = len(s11) / (len(s10) + len(s11) + len(s1n)) * 100
+    #acc = (len(s00) + len(s01)) / len(dt) * 100
+    #acc1 = len(s11) / (len(s10) + len(s11) + len(s1n)) * 100
     recall = len(s00) / (len(s00) + len(s10))  * 100
     precision = len(s00) / (len(s00) + len(s01) + len(s0n)) * 100
-    
+    f1 = 2 * (precision * recall / (precision + recall))
     #print(acc, acc1, recall, precision)
     
-    return acc, acc1, recall, precision
+    return f1
 
 # Create your views here.
 class MainView(View):
@@ -163,8 +163,8 @@ class SKHUploadView(View):
             company = 'skh',
         )
         score.save()
-        acc, acc1, recall, precision = get_SKH_score(score.file.path)
-        score.score = acc
+        f1 = get_SKH_score(score.file.path)
+        score.score = f1
         score.save()
         data = {'is_valid': True, 'name': score.file.name, 'url': score.file.url, 'create_date':score.create_date, 'score': score.score}
         
