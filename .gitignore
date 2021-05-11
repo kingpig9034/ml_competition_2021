@@ -1,1 +1,3 @@
 as_main/answers/*
+*.pyc
+**/*.pyc
