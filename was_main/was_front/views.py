@@ -167,7 +167,7 @@ class SKHUploadView(View):
         )
         score.save()
         f1 = get_SKH_score(score.file.path)
-        score.score = f1
+        score.score = round(f1,3)
         score.save()
         data = {'is_valid': True, 'name': score.file.name, 'url': score.file.url, 'create_date':score.create_date, 'score': score.score}
         
