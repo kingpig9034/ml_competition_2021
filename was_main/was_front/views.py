@@ -57,26 +57,29 @@ def get_SKH_score(submission_path):
     sample = pd.read_csv(submission_path,delimiter = ',')
     answer = pd.read_csv('mysuny2021/answer_hynix.csv',delimiter = ',')
     dt = pd.merge(answer[['Index', 'PF']], sample[['Index', 'PF']], how = 'left', on = ['Index'])
-    
-    include_dt = dt[(dt['PF_y'] == 1) | (dt['PF_y'] == 0)]
-    exclude_dt = dt[~dt.index.isin(include_dt.index)]
-    
 
-    s00 = dt[(dt['PF_x'] == 0) & (dt['PF_y'] == 0)]
-    s01 = dt[(dt['PF_x'] == 0) & (dt['PF_y'] == 1)]
-    s10 = dt[(dt['PF_x'] == 1) & (dt['PF_y'] == 0)]
-    s11 = dt[(dt['PF_x'] == 1) & (dt['PF_y'] == 1)]
-    san = dt[~((dt['PF_y'] == 1) | (dt['PF_y'] == 0))]
-    s1n = san[san['PF_x']== 1] 
-    s0n = san[san['PF_x']== 0]
-    
-    
-    #acc = (len(s00) + len(s01)) / len(dt) * 100
-    #acc1 = len(s11) / (len(s10) + len(s11) + len(s1n)) * 100
-    recall = len(s00) / (len(s00) + len(s10))  * 100
-    precision = len(s00) / (len(s00) + len(s01) + len(s0n)) * 100
-    f1 = 2 * (precision * recall / (precision + recall))
-    #print(acc, acc1, recall, precision)
+    if len(dt[dt['PF_y'].isnull()]) == 0 : 
+        
+        dt[['PF_x', 'PF_y']] = dt[['PF_x', 'PF_y']].astype('float')
+
+        s00 = dt[(dt['PF_x'] == 0) & (dt['PF_y'] == 0)]
+        s01 = dt[(dt['PF_x'] != 1) & (dt['PF_y'] != 0)]
+        s10 = dt[(dt['PF_x'] != 0) & (dt['PF_y'] != 1)]
+        s11 = dt[(dt['PF_x'] == 1) & (dt['PF_y'] == 1)]
+        san = dt[~((dt['PF_y'] == 1) | (dt['PF_y'] == 0))]
+        s1n = san[san['PF_x']== 1] 
+        s0n = san[san['PF_x']== 0]
+
+
+        #acc = (len(s00) + len(s01)) / len(dt) * 100
+        #acc1 = len(s11) / (len(s10) + len(s11) + len(s1n)) * 100
+        recall = len(s00) / (len(s00) + len(s10))  * 100
+        precision = len(s00) / (len(s00) + len(s01) + len(s0n)) * 100
+        f1 = 2 * (precision * recall / (precision + recall))
+
+    else : 
+        
+        f1 = -1
     
     return f1
 
